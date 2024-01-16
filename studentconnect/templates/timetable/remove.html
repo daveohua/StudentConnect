@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Remove class{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="class">Class</label>
+    <select name="enrolment_id" id="class">
+      {% for enrolment in query %}
+        <option value="{{ enrolment['id'] }}">{{ enrolment['qualification'] }} {{ enrolment['name'] }}</option>
+      {% endfor %}
+    </select>
+    <hr>
+    <input type="submit" value="Remove class">
+  </form> 
+{% endblock %}

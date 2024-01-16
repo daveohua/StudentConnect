@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Statistics{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <p><b>Total number of users:</b> {{ total_users['UserCount'] }}</p>
+  <p><b>Most common subject(s):</b></p>
+  {% for subject in modal_subjects %}
+    <p>{{ subject['Qualification'] }} {{ subject['Name'] }}</p>
+  {% endfor %}
+  <p><b>Most trusted users(s):</b></p>
+  {% for user in modal_trusted_users %}
+    <p>{{ user['FirstName'] }} {{ user['Surname'] }}</p>
+  {% endfor %}
+  <p><b>Number of users with first name beginning with D:</b> {{ total_d_users['UserCount'] }}</p>
+{% endblock %}

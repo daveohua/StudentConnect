@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Timetable{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<table>
+    <tr>
+      <th>&nbsp;</th>
+      <th>Period 1</th>
+      <th>Period 2</th>
+      <th>Period 3</th>
+      <th>Period 4</th>
+      <th>Period 5</th>
+      <th>Period 6</th>
+    </tr>
+    {% for day, lessons in timetable.items() %}
+      <tr>
+      <th>{{ day }}</th>
+      {% for lesson in lessons %}
+        <td>{{ lesson }}</td>
+      {% endfor %}
+      </tr>
+    {% endfor %}
+</table>
+<div>
+  <a href="{{ url_for('timetable.add')  }}">Add class</a>
+  <a href="{{ url_for('timetable.remove')  }}">Remove class</a>
+  <a href="{{ url_for('timetable.compare')  }}">Compare timetables</a>
+</div>
+</div>
+{% endblock %}

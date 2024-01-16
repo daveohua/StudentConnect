@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Settings{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="email">School email address</label>
+    <input type="email" name="Email" id="email" placeholder="{{ user['email'] }}">
+    <label for="FirstName">First name</label>
+    <input name="FirstName" id="FirstName" placeholder="{{ user['FirstName'] }}">
+    <label for="surname">Surname</label>
+    <input name="Surname" id="surname" placeholder="{{ user['Surname'] }}">
+    <label for="YearGroup">Year group</label>
+    <div>
+      <input
+        type="radio"
+        id="YearGroup1"
+        name="YearGroup"
+        value="1" />
+      <label for="YearGroup1">1</label>
+    
+      <input
+        type="radio"
+        id="YearGroup2"
+        name="YearGroup"
+        value="2" />
+      <label for="YearGroup2">2</label>
+    
+      <input
+        type="radio"
+        id="YearGroupF"
+        name="YearGroup"
+        value="F" />
+      <label for="YearGroupF">Foundation</label>
+
+      <script>
+        document.getElementById("YearGroup{{ user['YearGroup'] }}").setAttribute("checked", "checked");
+      </script>
+
+    </div>
+    <label for="privacy">Who would you like your timetable to be seen by?</label>
+    <div>
+      <input
+        type="radio"
+        id="privacy0"
+        name="Private"
+        value="0" />
+      <label for="privacy0">Everyone</label>
+      <input
+        type="radio"
+        id="privacy1"
+        name="Private"
+        value="1" />
+      <label for="privacy1">No-one</label>
+      <input
+        type="radio"
+        id="privacy3"
+        name="Private"
+        value="2" />
+      <label for="privacy2"><a href="{{ url_for('trusted_users.view')  }}">Trusted users</a></label>
+
+      <script>
+        document.getElementById("privacy{{ user['Private'] }}").setAttribute("checked", "checked");
+      </script>
+
+    </div>
+    <input type="submit" value="Save settings">
+  </form>
+{% endblock %}

@@ -1,0 +1,5 @@
+Hi, {{ name }}. You've asked us to send you a magic link to log into your account:
+{{ token_url }}
+
+Thanks for using StudentConnect!
+~ David

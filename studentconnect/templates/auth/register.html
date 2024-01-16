@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Register{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="email">Email address</label>
+    <input type="email" name="email" id="email" required>
+    <label for="FirstName">First name</label>
+    <input name="FirstName" id="FirstName" required>
+    <label for="surname">Surname</label>
+    <input name="surname" id="surname" required>
+    <label for="YearGroup">Year group</label>
+    <div>
+      <input
+        type="radio"
+        id="YearGroup1"
+        name="YearGroup"
+        value="1" />
+      <label for="YearGroup1">1</label>
+    
+      <input
+        type="radio"
+        id="YearGroup2"
+        name="YearGroup"
+        value="2" />
+      <label for="YearGroup2">2</label>
+    
+      <input
+        type="radio"
+        id="YearGroupF"
+        name="YearGroup"
+        value="F" />
+      <label for="YearGroupF">Foundation</label>
+
+    </div>
+    <input type="submit" value="Register">
+  </form>
+{% endblock %}

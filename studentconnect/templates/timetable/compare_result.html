@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Compared Timetable{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<table>
+    <tr>
+      <th>&nbsp;</th>
+      <th>Period 1</th>
+      <th>Period 2</th>
+      <th>Period 3</th>
+      <th>Period 4</th>
+      <th>Period 5</th>
+      <th>Period 6</th>
+    </tr>
+    {% for day, lessons in timetable.items() %}
+      <tr>
+      <th>{{ day }}</th>
+      {% for lesson in lessons %}
+        <td style="background-color: hsl(45, 100%, {{ lesson }}%);"></td>
+      {% endfor %}
+      </tr>
+    {% endfor %}
+</table>
+<div id="guide-div">
+  <p>Everyone is occupied</p>
+  <div id="guide"></div>
+  <p>Everyone is free</p>
+</div>
+<div>
+  <a href="{{ url_for('timetable.compare')  }}">Compare again</a>
+  <a href="{{ url_for('timetable.view')  }}">View timetable</a>
+</div>
+{% endblock %}

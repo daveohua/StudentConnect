@@ -1,0 +1,12 @@
+[project]
+name = "studentconnect"
+version = "1.0.0"
+description = "A web app allowing the comparison of student timetables."
+dependencies = [
+	"flask",
+	"PyJWT",
+]
+
+[build-system]
+requires = ["flit_core<4"]
+build-backend = "flit_core.buildapi"

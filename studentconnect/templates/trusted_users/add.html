@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Trust user{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="user">User</label>
+    <select name="user_id" id="user">
+      {% for user in users %}
+        <option value="{{ user['id'] }}">{{ user['FirstName'] }} {{ user['Surname'] }}</option>
+      {% endfor %}
+    </select>
+    <hr>
+    <input type="submit" value="Trust user">
+  </form> 
+  <div>
+    <a href="{{ url_for('trusted_users.view')  }}">View trusted users</a>
+  </div>
+{% endblock %}
